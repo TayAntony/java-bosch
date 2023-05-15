@@ -37,11 +37,8 @@ public class CadastroRestaurantes extends JFrame {
         botaoCadastrar.setContentAreaFilled(false);
         botaoCadastrar.setBorderPainted(false);
 
-        JButton botaoVoltar = new JButton("aaaaaa");
-        botaoVoltar.setBounds(100, 500, 100, 80);
-        //botaoVoltar.setOpaque(false);
-        //botaoVoltar.setContentAreaFilled(false);
-        //botaoVoltar.setBorderPainted(false);
+        Botao botaoVoltar = new Botao();
+        botaoVoltar.setBounds(60, 440, 100, 50);
 
         ImageIcon imagem = new ImageIcon("src/imagens/cadastrar_restaurante.png");
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
@@ -55,10 +52,10 @@ public class CadastroRestaurantes extends JFrame {
                 System.out.println("Cadastrando restaurante");
             }
         });
-        
+
         botaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("voltando");
+                dispose();
             }
         });
 

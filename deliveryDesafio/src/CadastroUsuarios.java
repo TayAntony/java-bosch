@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CadastroUsuarios extends JFrame {
     private JTextField campoNome;
@@ -13,29 +15,48 @@ public class CadastroUsuarios extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
+        Font fonte = new Font("Arial", Font.BOLD, 24);
 
         campoNome = new JTextField(20);
-        campoNome.setBounds(200, 400, 300, 50);
+        campoNome.setBounds(150, 205, 300, 45);
+        campoNome.setFont(fonte);
 
         campoCpf = new JTextField(14);
-        campoCpf.setBounds(200, 500, 300, 50);
+        campoCpf.setBounds(150, 280, 300, 45);
+        campoCpf.setFont(fonte);
 
         campoEndereco = new JTextField(14);
-        campoEndereco.setBounds(240, 500, 260, 50);
+        campoEndereco.setBounds(200, 350, 250, 45);
+        campoEndereco.setFont(fonte);
 
+        botaoCadastrar = new JButton("");
+        botaoCadastrar.setBounds(550, 280, 80, 80);
+        botaoCadastrar.setOpaque(false);
+        botaoCadastrar.setContentAreaFilled(false);
+        botaoCadastrar.setBorderPainted(false);
 
-        botaoCadastrar = new JButton("Cadastrar");
-        botaoCadastrar.setBounds(120, 280, 100, 100);
-        //botaoCadastrar.setOpaque(false);
-        //botaoCadastrar.setContentAreaFilled(false);
-        //botaoCadastrar.setBorderPainted(false);
+        Botao botaoVoltar = new Botao();
+        botaoVoltar.setBounds(60, 440, 100, 50);
 
         ImageIcon imagem = new ImageIcon("src/imagens/cadastrar_usuario.png");
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
         ImageIcon imagemFinal = new ImageIcon(imagemRedimensionada);
         JLabel labelImagem = new JLabel(imagemFinal);
         labelImagem.setBounds(0,  0, 800, 500);
+
+
+        botaoVoltar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+        getContentPane().add(campoCpf);
+        getContentPane().add(campoNome);
+        getContentPane().add(campoEndereco);
+        getContentPane().add(botaoCadastrar);
         getContentPane().add(labelImagem);
+        getContentPane().add(botaoVoltar);
 
         labelImagem.setVisible(true);
     }
