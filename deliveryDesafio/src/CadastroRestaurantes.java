@@ -8,7 +8,6 @@ public class CadastroRestaurantes extends JFrame {
     private JTextField campoNome;
     private JTextField campoCnpj;
     private JTextField campoEndereco;
-    private JButton botaoCadastrar;
     public CadastroRestaurantes() {
         setTitle("Cadastro de restaurantes");
         setBounds(200, 100, 800, 535);
@@ -17,7 +16,6 @@ public class CadastroRestaurantes extends JFrame {
         setResizable(false);
 
         Font fonte = new Font("Arial", Font.BOLD, 24);
-
 
         campoNome = new JTextField(20);
         campoNome.setBounds(150, 205, 300, 45);
@@ -31,11 +29,8 @@ public class CadastroRestaurantes extends JFrame {
         campoEndereco.setBounds(200, 350, 250, 45);
         campoEndereco.setFont(fonte);
 
-        botaoCadastrar = new JButton("");
+        Botao botaoCadastrar = new Botao();
         botaoCadastrar.setBounds(550, 280, 80, 80);
-        botaoCadastrar.setOpaque(false);
-        botaoCadastrar.setContentAreaFilled(false);
-        botaoCadastrar.setBorderPainted(false);
 
         Botao botaoVoltar = new Botao();
         botaoVoltar.setBounds(60, 440, 100, 50);

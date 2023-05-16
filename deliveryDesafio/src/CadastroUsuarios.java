@@ -29,14 +29,17 @@ public class CadastroUsuarios extends JFrame {
         campoEndereco.setBounds(200, 350, 250, 45);
         campoEndereco.setFont(fonte);
 
-        botaoCadastrar = new JButton("");
+        Botao botaoCadastrar = new Botao();
         botaoCadastrar.setBounds(550, 280, 80, 80);
-        botaoCadastrar.setOpaque(false);
-        botaoCadastrar.setContentAreaFilled(false);
-        botaoCadastrar.setBorderPainted(false);
 
         Botao botaoVoltar = new Botao();
         botaoVoltar.setBounds(60, 440, 100, 50);
+
+        botaoCadastrar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Cadastrando usuário");
+            }
+        });
 
         ImageIcon imagem = new ImageIcon("src/imagens/cadastrar_usuario.png");
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
