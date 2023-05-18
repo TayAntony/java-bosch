@@ -11,6 +11,10 @@ public class Pedidos extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
+        TelaInicio inicio = new TelaInicio();
+
+        Menu menu = new Menu();
+
         String[] listaClientes = {"tayssa antoniasse", "viktor marinho", "raissa rossi"};
         String[] listaRestaurantes = {"Burguer king", "mc donalds", "esfihas donatello"};
 
@@ -31,10 +35,16 @@ public class Pedidos extends JFrame {
                 dispose();
             }
         });
+
+        botaoVoltar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                inicio.setVisible(true);
+            }
+        });
         botaoNext.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                System.out.println("redirecionar para o menu");
+                menu.setVisible(true);
             }
         });
 

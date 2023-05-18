@@ -57,22 +57,6 @@ public class TelaInicio extends JFrame {
         botaoCadastrarUsuario.setContentAreaFilled(false);
         botaoCadastrarUsuario.setBorderPainted(false);
 
-        botaoCadastrarRestaurante.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Cadastrando restaurante");
-            }
-        });
-        botaoCadastrarUsuario.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Cadastrando usuario");
-            }
-        });
-        botaoFazerPedido.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("fazendo pedido");
-            }
-        });
-
         ImageIcon imagem = new ImageIcon("src/imagens/tela_inicial.png");
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
         ImageIcon imagemFinal = new ImageIcon(imagemRedimensionada);

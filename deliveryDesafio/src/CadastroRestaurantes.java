@@ -15,6 +15,8 @@ public class CadastroRestaurantes extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
+        CadastroProdutos produtos = new CadastroProdutos();
+
         Font fonte = new Font("Arial", Font.BOLD, 24);
 
         campoNome = new JTextField(20);
@@ -44,10 +46,15 @@ public class CadastroRestaurantes extends JFrame {
 
         botaoCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Cadastrando restaurante");
+                produtos.setVisible(true);
             }
         });
 
+        botaoVoltar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
         botaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
