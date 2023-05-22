@@ -38,7 +38,9 @@ public class CadastroUsuarios extends JFrame {
 
         botaoCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 pedidos.setVisible(true);
+                dispose();
             }
         });
 

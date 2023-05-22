@@ -36,15 +36,11 @@ public class Pedidos extends JFrame {
             }
         });
 
-        botaoVoltar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                inicio.setVisible(true);
-            }
-        });
         botaoNext.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
                 menu.setVisible(true);
+                dispose();
             }
         });
 

@@ -47,7 +47,9 @@ public class CadastroProdutos extends JFrame {
 
         botaoPedir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 pedidos.setVisible(true);
+                dispose();
             }
         });
 

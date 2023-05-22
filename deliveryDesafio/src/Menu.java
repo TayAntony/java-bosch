@@ -4,6 +4,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Menu  extends JFrame {
+    private int quantidadePeixe = 0;
+    private int quantidadeBatata = 0;
+    private int quantidadeSorvete = 0;
+    private int quantidadeRefrigerante = 0;
+
+    private JLabel qtdXpeixe;
+    private JLabel qtdSorvete;
+    private JLabel qtdBatata;
+    private JLabel qtdRefrigerante;
+    private Botao aumentarXpeixe;
+    private Botao aumentarBatata;
+    private Botao aumentarSorvete;
+    private Botao aumentarRefrigerante;
+    private Botao diminuirXpeixe;
+    private Botao diminuirBatata;
+    private Botao diminuirSorvete;
+    private Botao diminuirRefrigerante;
+
     public Menu(){
         setTitle("Mienu");
         setBounds(200, 100, 800, 535);
@@ -20,43 +38,44 @@ public class Menu  extends JFrame {
 
 
         //BOTOES DE AUMENTAR QNTD
-        Botao aumentarXpeixe = new Botao();
+        aumentarXpeixe = new Botao();
         aumentarXpeixe.setBounds(517, 124, 50, 50);
 
-        Botao aumentarBatata = new Botao();
+        aumentarBatata = new Botao();
         aumentarBatata.setBounds(517, 186, 50, 50);
 
-        Botao aumentarSorvete = new Botao();
+        aumentarSorvete = new Botao();
         aumentarSorvete.setBounds(517, 248, 50, 50);
 
-        Botao aumentarRefrigerante = new Botao();
+        aumentarRefrigerante = new Botao();
         aumentarRefrigerante.setBounds(517, 310, 50, 50);
 
         //BOTOES DIMINUIR QTD
-        Botao diminuirXpeixe = new Botao();
+        diminuirXpeixe = new Botao();
         diminuirXpeixe.setBounds(83, 121, 50, 50);
 
-        Botao diminuirBatata = new Botao();
+        diminuirBatata = new Botao();
         diminuirBatata.setBounds(83, 182, 50, 50);
 
-        Botao diminuirSorvete = new Botao();
+        diminuirSorvete = new Botao();
         diminuirSorvete.setBounds(83, 244, 50, 50);
 
-        Botao diminuirRefrigerante = new Botao();
+        diminuirRefrigerante = new Botao();
         diminuirRefrigerante.setBounds(83, 305, 50, 50);
 
 
         //LABELS MOSTRAR QUANTIDADE
-        Label qtdXpeixe = new Label();
+        qtdXpeixe = new Label();
         qtdXpeixe.setBounds(583, 125, 60, 42);
+        qtdXpeixe.setText("peixe");
 
-        Label qtdSorvete = new Label();
+        qtdSorvete = new Label();
         qtdSorvete.setBounds(583, 186, 60, 42);
 
-        Label qtdBatata = new Label();
+        qtdBatata = new Label();
         qtdBatata.setBounds(583, 247, 60, 42);
 
-        Label qtdRefrigerante = new Label();
+        qtdRefrigerante = new Label();
         qtdRefrigerante.setBounds(583, 309, 60, 42);
 
 
@@ -75,7 +94,7 @@ public class Menu  extends JFrame {
         diminuirXpeixe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Diminuir peixe");
+                qtdXpeixe.setText("" + (quantidadePeixe-1));
             }
         });
 
@@ -103,7 +122,7 @@ public class Menu  extends JFrame {
         aumentarXpeixe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("aumentar peixe");
+                qtdXpeixe.setText("" + (quantidadePeixe+1));
             }
         });
 
@@ -153,4 +172,6 @@ public class Menu  extends JFrame {
         getContentPane().add(botaoVoltar);
         getContentPane().add(botaoNext);
     }
+
 }
+

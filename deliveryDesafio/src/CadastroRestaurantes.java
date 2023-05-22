@@ -46,15 +46,12 @@ public class CadastroRestaurantes extends JFrame {
 
         botaoCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                produtos.setVisible(true);
-            }
-        });
 
-        botaoVoltar.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+                produtos.setVisible(true);
                 dispose();
             }
         });
+
         botaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
