@@ -2,6 +2,8 @@ package bosch;
 
 public class Equacao {
     public static void main(String[] args) {
+
+        //O RESULTADO DESSA EQUAÇÃO DEVE DAR 0
         double pParenteses, pParenteses1,pp, sParenteses, sParenteses1, pp2, tParenteses, tParenteses1, numerador,
                 denominador, chaves, chavesElevado, resultado, umaLinha;
 
@@ -21,10 +23,16 @@ public class Equacao {
         chavesElevado = Math.pow(chaves, -1);
         resultado = chavesElevado + 4;
 
-        System.out.println(resultado);
+        System.out.println("O resultado com várias variáveis: "+resultado);
 
         umaLinha = Math.pow((3*((Math.pow(-3,-2))/(Math.pow(4,-2)))+(6*((Math.pow(3,-1)/4))-4))/(7*((Math.pow(-3,-1))/(Math.pow(4,-1)))+2),-1)+4;
-        System.out.println(umaLinha);
+        System.out.println("O resultado de uma linha: " + umaLinha);
+
+        if(resultado == 0 && umaLinha == 0){
+            System.out.println("Tudo certo! Parabéns :)");
+        }else{
+            System.out.println("Algo deu errado :(");
+        }
     }
 }
 

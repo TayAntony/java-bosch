@@ -8,7 +8,7 @@ public class Quadrado {
 
         Scanner entrada = new Scanner(System.in);
 
-        System.out.println("Digite um número: ");
+        System.out.println("Digite um número para descobrir seu quadrado e seu cubo: ");
 
         pedirNumero = entrada.nextDouble();
 

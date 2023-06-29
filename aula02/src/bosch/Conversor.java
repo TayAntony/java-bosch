@@ -14,6 +14,7 @@ public class Conversor {
         celsius = (fahrenheit - 32)*5/9;
 
         System.out.printf("%.1fºF em celsius é %.1fºC\n", fahrenheit, celsius);
+        System.out.println("============================");
 
 // convertendo para fahrenheit
         System.out.println("Digite um número em ºC: ");

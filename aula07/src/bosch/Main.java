@@ -13,7 +13,7 @@ public class Main {
 
     static double primos(){
         Scanner escolha = new Scanner(System.in);
-        System.out.print("Digite um número para ver seu primo: ");
+        System.out.print("Digite um número para ver se é primo\n(para ser primo tem que ser dividido apenas 2 vezes): ");
         String entrada = escolha.next();
         double valor = tratamentoErros(entrada);
         CalcularPrimo calcular = new CalcularPrimo(valor);

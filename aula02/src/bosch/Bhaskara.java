@@ -16,11 +16,11 @@ public class Bhaskara {
         System.out.println("Digite o valor de b: ");
         b = entrada.nextInt();
 
-        System.out.println("Digite o valor de c: ");
+        System.out.println("Digite o valor de c (negativo): ");
         c = entrada.nextInt();
 
         double delta = Math.pow(b,2)-4*a*c;
-        System.out.println(delta);
+        System.out.println("O delta dessa equação é: " + delta);
 
     }
 }
