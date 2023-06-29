@@ -39,11 +39,11 @@ public class Menu  extends JFrame {
 
         //LABELS MOSTRAR QUANTIDADE
         qtdProdutoAtual = new Label();
-        qtdProdutoAtual.setBounds(515, 129, 60, 40);
+        qtdProdutoAtual.setBounds(535, 120, 60, 40);
         qtdProdutoAtual.setText("3");
 
         totalItens = new Label();
-        totalItens.setBounds(515, 360, 91, 64);
+        totalItens.setBounds(540, 380, 91, 64);
         totalItens.setText("23");
 
 
@@ -77,14 +77,6 @@ public class Menu  extends JFrame {
             }
         });
 
-        ImageIcon imagem = new ImageIcon("src/imagens/cardapio.png");
-        Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
-        ImageIcon imagemFinal = new ImageIcon(imagemRedimensionada);
-        JLabel labelImagem = new JLabel(imagemFinal);
-        labelImagem.setBounds(0,  0, 800, 500);
-
-        getContentPane().add(labelImagem);
-
 
         getContentPane().add(botaoVoltar);
         getContentPane().add(botaoNext);
@@ -94,6 +86,13 @@ public class Menu  extends JFrame {
         getContentPane().add(diminuirQtd);
         getContentPane().add(qtdProdutoAtual);
 
+        ImageIcon imagem = new ImageIcon("src/imagens/cardapio.png");
+        Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
+        ImageIcon imagemFinal = new ImageIcon(imagemRedimensionada);
+        JLabel labelImagem = new JLabel(imagemFinal);
+        labelImagem.setBounds(0,  0, 800, 500);
+
+        getContentPane().add(labelImagem);
         labelImagem.setVisible(true);
     }
 
