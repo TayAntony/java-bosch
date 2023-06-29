@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 public class Menu  extends JFrame {
     private JButton aumentarQtd;
     private JButton diminuirQtd;
-    private JLabel totalItens;
-    private JLabel qtdProdutoAtual;
+    private JLabel labelTotalItens;
+    private JLabel labelQtdProdutoAtual;
 
     public Menu(){
         setTitle("Mienu");
@@ -17,6 +17,8 @@ public class Menu  extends JFrame {
         setResizable(false);
 
         Total telaTotal = new Total();
+        int quantidadeProduto = 0;
+        int quantidadeTotal = 0;
 
 
         Botao botaoVoltar = new Botao();
@@ -38,13 +40,13 @@ public class Menu  extends JFrame {
         diminuirQtd.setBounds(154, 125, 50, 50);
 
         //LABELS MOSTRAR QUANTIDADE
-        qtdProdutoAtual = new Label();
-        qtdProdutoAtual.setBounds(535, 120, 60, 40);
-        qtdProdutoAtual.setText("3");
+        labelQtdProdutoAtual = new Label();
+        labelQtdProdutoAtual.setBounds(535, 120, 60, 40);
+        labelQtdProdutoAtual.setText("" + quantidadeProduto);
 
-        totalItens = new Label();
-        totalItens.setBounds(540, 380, 91, 64);
-        totalItens.setText("23");
+        labelTotalItens = new Label();
+        labelTotalItens.setBounds(540, 380, 91, 64);
+        labelTotalItens.setText("" + quantidadeTotal);
 
 
         botaoVoltar.addActionListener(new ActionListener() {
@@ -61,19 +63,23 @@ public class Menu  extends JFrame {
 
         botaoOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("adicionando ao total");
+                labelQtdProdutoAtual.setText("" + (quantidadeProduto+quantidadeTotal));
+
+                System.out.println("adicionando " + quantidadeProduto + " á " + quantidadeTotal);
             }
         });
 
         aumentarQtd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("aumentando qtd do produto");
+                labelQtdProdutoAtual.setText("" + (quantidadeProduto+1));
+                System.out.println(quantidadeProduto);
             }
         });
 
         diminuirQtd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("diminuindo qtd do produto");
+                labelQtdProdutoAtual.setText("" + (quantidadeProduto-1));
+                System.out.println(quantidadeProduto);
             }
         });
 
@@ -81,10 +87,10 @@ public class Menu  extends JFrame {
         getContentPane().add(botaoVoltar);
         getContentPane().add(botaoNext);
         getContentPane().add(botaoOk);
-        getContentPane().add(totalItens);
+        getContentPane().add(labelTotalItens);
         getContentPane().add(aumentarQtd);
         getContentPane().add(diminuirQtd);
-        getContentPane().add(qtdProdutoAtual);
+        getContentPane().add(labelQtdProdutoAtual);
 
         ImageIcon imagem = new ImageIcon("src/imagens/cardapio.png");
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);

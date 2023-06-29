@@ -38,6 +38,20 @@ public class CadastroUsuarios extends JFrame {
 
         botaoCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                String nome = campoNome.getText();
+                String cpf = campoCpf.getText();
+                String endereço = campoEndereco.getText();
+
+
+
+                System.out.println("Cliente cadastrado com sucesso");
+                System.out.println("Nome do cliente: " + nome);
+                System.out.println("cpf do cliente: " + cpf);
+                System.out.println("endereço do cliente: " + endereço);
+
+                campoNome.setText("");
+                campoCpf.setText("");
+                campoEndereco.setText("");
 
                 pedidos.setVisible(true);
                 dispose();

@@ -2,12 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class CadastroRestaurantes extends JFrame {
 
     private JTextField campoNome;
     private JTextField campoCnpj;
     private JTextField campoEndereco;
+    //private List<Restaurante> listaRestaurantes;
+
     public CadastroRestaurantes() {
         setTitle("Cadastro de restaurantes");
         setBounds(200, 100, 800, 535);
@@ -44,11 +47,25 @@ public class CadastroRestaurantes extends JFrame {
         labelImagem.setBounds(0,  0, 800, 500);
         getContentPane().add(labelImagem);
 
+        //listaRestaurantes = new ArrayList<>();
+
         botaoCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            String nome = campoNome.getText();
+            String cnpj = campoCnpj.getText();
+            String endereço = campoEndereco.getText();
 
-                produtos.setVisible(true);
-                dispose();
+            System.out.println("Restaurante cadastrado com sucesso");
+            System.out.println("Nome do restaurante: " + nome);
+            System.out.println("cnpj do restaurante: " + cnpj);
+            System.out.println("endereço do restaurante: " + endereço);
+
+            campoNome.setText("");
+            campoCnpj.setText("");
+            campoEndereco.setText("");
+
+            produtos.setVisible(true);
+            dispose();
             }
         });
 
@@ -67,5 +84,7 @@ public class CadastroRestaurantes extends JFrame {
 
         labelImagem.setVisible(true);
     }
+
+
 
 }

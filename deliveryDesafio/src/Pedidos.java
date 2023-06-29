@@ -17,10 +17,10 @@ public class Pedidos extends JFrame {
         String[] listaRestaurantes = {"Burguer king", "mc donalds", "esfihas donatello"};
 
         JComboBox<String> dropdownClientes = new JComboBox<>(listaClientes);
-        dropdownClientes.setBounds(100, 250, 200, 30);
+        dropdownClientes.setBounds(105, 250, 200, 30);
 
         JComboBox<String> dropdownRestaurantes = new JComboBox<>(listaRestaurantes);
-        dropdownRestaurantes.setBounds(500, 250, 200, 30);
+        dropdownRestaurantes.setBounds(495, 250, 200, 30);
 
         Botao botaoVoltar = new Botao();
         botaoVoltar.setBounds(40, 120, 100, 50);
