@@ -11,8 +11,6 @@ public class Pedidos extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
-        TelaInicio inicio = new TelaInicio();
-
         Menu menu = new Menu();
 
         String[] listaClientes = {"tayssa antoniasse", "viktor marinho", "raissa rossi"};
