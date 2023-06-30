@@ -63,7 +63,8 @@ public class Menu  extends JFrame {
 
         botaoOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                labelQtdProdutoAtual.setText("" + (quantidadeProduto+quantidadeTotal));
+                labelTotalItens.setText("" + (quantidadeProduto+quantidadeTotal));
+                labelQtdProdutoAtual.setText("" + 0);
 
                 System.out.println("adicionando " + quantidadeProduto + " á " + quantidadeTotal);
             }
