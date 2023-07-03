@@ -30,6 +30,9 @@ public class Menu  extends JFrame {
         Botao botaoOk = new Botao();
         botaoOk.setBounds(584, 122, 52, 55);
 
+        Botao botaoImprimir = new Botao();
+        botaoImprimir.setBounds(440, 0, 140, 40);
+
 
         //BOTOES DE AUMENTAR QNTD
         aumentarQtd = new Botao();
@@ -84,6 +87,19 @@ public class Menu  extends JFrame {
             }
         });
 
+        botaoImprimir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                System.out.println("Restaurante Esfihas Donatello");
+                System.out.println("PRODUTO ................... PREÇO");
+                System.out.println("Esfiha doce ............... R$ 13,00");
+                System.out.println("Esfiha salgada ............ R$ 15,00");
+                System.out.println("Mini pizza ................ R$ 22,00");
+                System.out.println("Refrigerante .............. R$ 6,00");
+                System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+            }
+        });
+
 
         getContentPane().add(botaoVoltar);
         getContentPane().add(botaoNext);
@@ -92,6 +108,7 @@ public class Menu  extends JFrame {
         getContentPane().add(aumentarQtd);
         getContentPane().add(diminuirQtd);
         getContentPane().add(labelQtdProdutoAtual);
+        getContentPane().add(botaoImprimir);
 
         ImageIcon imagem = new ImageIcon("src/imagens/cardapio.png");
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);

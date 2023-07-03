@@ -53,9 +53,5 @@ public class Pedidos extends JFrame {
         getContentPane().add(labelImagem);
         getContentPane().add(botaoVoltar);
         getContentPane().add(botaoNext);
-
     }
-
-
-
 }
