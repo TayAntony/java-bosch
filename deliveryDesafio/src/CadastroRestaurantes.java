@@ -9,16 +9,13 @@ public class CadastroRestaurantes extends JFrame {
     private JTextField campoNome;
     private JTextField campoCnpj;
     private JTextField campoEndereco;
-    //private List<Restaurante> listaRestaurantes;
 
-    public CadastroRestaurantes() {
+    public CadastroRestaurantes(ArrayList<Restaurante> listaRestaurantes, ArrayList<Usuario> listaUsuario) {
         setTitle("Cadastro de restaurantes");
         setBounds(200, 100, 800, 535);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-
-        CadastroProdutos produtos = new CadastroProdutos();
 
         Font fonte = new Font("Arial", Font.BOLD, 24);
 
@@ -54,17 +51,16 @@ public class CadastroRestaurantes extends JFrame {
             String nome = campoNome.getText();
             String cnpj = campoCnpj.getText();
             String endereço = campoEndereco.getText();
+            Restaurante restaurante = new Restaurante(nome, cnpj, endereço);
 
             System.out.println("Restaurante cadastrado com sucesso");
-            System.out.println("Nome do restaurante: " + nome);
-            System.out.println("cnpj do restaurante: " + cnpj);
-            System.out.println("endereço do restaurante: " + endereço);
+            listaRestaurantes.add(restaurante);
 
             campoNome.setText("");
             campoCnpj.setText("");
             campoEndereco.setText("");
 
-            produtos.setVisible(true);
+            new CadastroProdutos(listaRestaurantes, listaUsuario, restaurante).setVisible(true);
             dispose();
             }
         });

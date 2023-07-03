@@ -2,19 +2,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class CadastroUsuarios extends JFrame {
     private JTextField campoNome;
     private JTextField campoCpf;
     private JTextField campoEndereco;
     private JButton botaoCadastrar;
-    public CadastroUsuarios() {
+    public CadastroUsuarios(ArrayList<Restaurante> listaRestaurantes, ArrayList<Usuario> listaUsuarios) {
         setTitle("Cadastro de usuários");
         setBounds(200, 100, 800, 535);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        Pedidos pedidos = new Pedidos();
 
         Font fonte = new Font("Arial", Font.BOLD, 24);
 
@@ -42,18 +42,15 @@ public class CadastroUsuarios extends JFrame {
                 String cpf = campoCpf.getText();
                 String endereço = campoEndereco.getText();
 
-
+                listaUsuarios.add(new Usuario(nome, cpf, endereço));
 
                 System.out.println("Cliente cadastrado com sucesso");
-                System.out.println("Nome do cliente: " + nome);
-                System.out.println("cpf do cliente: " + cpf);
-                System.out.println("endereço do cliente: " + endereço);
 
                 campoNome.setText("");
                 campoCpf.setText("");
                 campoEndereco.setText("");
 
-                pedidos.setVisible(true);
+                new Pedidos(listaRestaurantes, listaUsuarios).setVisible(true);
                 dispose();
             }
         });

@@ -2,19 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class CadastroProdutos extends JFrame {
 
     private JTextField campoNome;
     private JTextField campoPreco;
-    public CadastroProdutos() {
+    public CadastroProdutos(ArrayList<Restaurante> listaRestaurante, ArrayList<Usuario> listaUsuario, Restaurante restauranteSelecionado) {
         setTitle("Cadastro de produtos");
         setBounds(200, 100, 800, 535);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-
-        Pedidos pedidos = new Pedidos();
 
         Font fonte = new Font("Arial", Font.BOLD, 24);
         Font fonteAviso = new Font("Arial", Font.ITALIC, 12);
@@ -47,8 +46,7 @@ public class CadastroProdutos extends JFrame {
                 String preco = campoPreco.getText();
 
                 System.out.println("produto cadastrado com sucesso");
-                System.out.println("Nome do produto: " + nome);
-                System.out.println("preço do produto: " + preco);
+                restauranteSelecionado.lanches.add(new Lanche(nome, Double.parseDouble(preco)));
                 aviso.setVisible(true);
 
                 campoNome.setText("");
@@ -66,7 +64,7 @@ public class CadastroProdutos extends JFrame {
 
         botaoPedir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                pedidos.setVisible(true);
+                new Pedidos(listaRestaurante, listaUsuario).setVisible(true);
                 dispose();
             }
         });

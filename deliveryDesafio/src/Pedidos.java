@@ -2,19 +2,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Pedidos extends JFrame {
-    public Pedidos(){
+    String getNome(Restaurante restaurante){
+        return restaurante.nome;
+    }
+    String getUsuarioNome(Usuario usuario){
+        return usuario.nome;
+    }
+
+    public Pedidos(ArrayList<Restaurante> listaRestaurante, ArrayList<Usuario> listaUsuario){
+
         setTitle("Fazer pedido");
         setBounds(200, 100, 800, 535);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
-        Menu menu = new Menu();
-
-        String[] listaClientes = {"tayssa antoniasse", "viktor marinho", "raissa rossi"};
-        String[] listaRestaurantes = {"Burguer king", "mc donalds", "esfihas donatello"};
+        String[] listaClientes = Arrays.stream(listaUsuario.toArray()).map(n -> getUsuarioNome((Usuario) n)).toArray(String[]::new);
+        String[] listaRestaurantes = Arrays.stream(listaRestaurante.toArray()).map(n -> getNome((Restaurante) n)).toArray(String[]::new);
 
         JComboBox<String> dropdownClientes = new JComboBox<>(listaClientes);
         dropdownClientes.setBounds(105, 250, 200, 30);
@@ -37,7 +46,7 @@ public class Pedidos extends JFrame {
         botaoNext.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                menu.setVisible(true);
+                new Menu().setVisible(true);
                 dispose();
             }
         });

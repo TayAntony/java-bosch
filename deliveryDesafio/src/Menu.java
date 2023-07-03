@@ -2,14 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 public class Menu  extends JFrame {
     private JButton aumentarQtd;
     private JButton diminuirQtd;
     private JLabel labelTotalItens;
     private JLabel labelQtdProdutoAtual;
+    String getLancheNome(Lanche lanche){
+        return lanche.nome + " - R$ " + lanche.preco;
+    }
 
-    public Menu(){
+    public Menu(Restaurante restaurante, Usuario usuario){
         setTitle("Mienu");
         setBounds(200, 100, 800, 535);
         setLayout(null);
@@ -33,6 +37,10 @@ public class Menu  extends JFrame {
         Botao botaoImprimir = new Botao();
         botaoImprimir.setBounds(440, 0, 140, 40);
 
+        String[] listaProdutos = Arrays.stream(restaurante.lanches.toArray()).map(n -> getLancheNome((Lanche) n)).toArray(String[]::new);
+
+        JComboBox<String> dropdownProdutos = new JComboBox<>(listaProdutos);
+        dropdownProdutos.setBounds(105, 250, 200, 30);
 
         //BOTOES DE AUMENTAR QNTD
         aumentarQtd = new Botao();
