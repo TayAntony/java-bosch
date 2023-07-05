@@ -94,22 +94,20 @@ public class Menu  extends JFrame {
 
                 labelTotalItens.setText("" + (pedido.size()));
                 labelQtdProdutoAtual.setText("" + 0);
-
-                System.out.println("adicionando " + labelQtdProdutoAtual.getText() + " á " + quantidadeTotal);
             }
         });
 
         aumentarQtd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 labelQtdProdutoAtual.setText("" + (Integer.parseInt(labelQtdProdutoAtual.getText())+1));
-                System.out.println(quantidadeProduto);
+
             }
         });
 
         diminuirQtd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 labelQtdProdutoAtual.setText("" + (Integer.parseInt(labelQtdProdutoAtual.getText())-1));
-                System.out.println(quantidadeProduto);
+
             }
         });
 

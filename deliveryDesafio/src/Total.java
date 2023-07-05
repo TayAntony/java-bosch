@@ -14,9 +14,19 @@ public class Total extends JFrame{
 
         Botao botaoVoltar = new Botao();
         botaoVoltar.setBounds(50, 430, 100, 50);
+
+        Botao botaoImprimirNotaFiscal = new Botao();
+        botaoImprimirNotaFiscal.setBounds(130, 305, 215, 40);
         botaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
+            }
+        });
+
+        botaoImprimirNotaFiscal.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                System.out.println("IMprimindo nota fiscal");
             }
         });
 
@@ -35,13 +45,14 @@ public class Total extends JFrame{
         for (Lanche lanche : listaLanches) {
             totalPedido = lanche.preco + totalPedido;
         }
-        total.setText("R$" + totalPedido);
+        total.setText("R$" + totalPedido + "0");
         
 
         getContentPane().add(botaoVoltar);
         getContentPane().add(nomeRestaurante);
         getContentPane().add(nomeCliente);
         getContentPane().add(total);
+        getContentPane().add(botaoImprimirNotaFiscal);
 
         ImageIcon imagem = new ImageIcon("src/imagens/total.png");
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
