@@ -45,8 +45,22 @@ public class Pedidos extends JFrame {
 
         botaoNext.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                String nomeCliente = listaClientes[dropdownClientes.getSelectedIndex()];
+                String nomeRestaurante = listaRestaurantes[dropdownRestaurantes.getSelectedIndex()];
+                Restaurante restaurante = null;
+                Usuario usuario = null;
+                for (Usuario _user: listaUsuario) {
+                    if (_user.nome == nomeCliente){
+                        usuario = _user;
+                    }
+                }
 
-                new Menu().setVisible(true);
+                for (Restaurante _res: listaRestaurante) {
+                    if (_res.nome == nomeRestaurante){
+                        restaurante = _res;
+                    }
+                }
+                new Menu(restaurante, usuario).setVisible(true);
                 dispose();
             }
         });

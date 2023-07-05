@@ -2,8 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 public class Total extends JFrame{
-    public Total(){
+    public Total(Restaurante restaurante, Usuario usuario, ArrayList<Lanche> listaLanches){
         setTitle("Total");
         setBounds(200, 100, 800, 535);
         setLayout(null);
@@ -20,17 +22,21 @@ public class Total extends JFrame{
 
         Label nomeRestaurante = new Label();
         nomeRestaurante.setBounds(260, 70, 310, 45);
-        nomeRestaurante.setText("Restaurante da tay");
+        nomeRestaurante.setText(restaurante.nome);
 
         Label nomeCliente = new Label();
         nomeCliente.setBounds(200, 120, 310, 45);
-        nomeCliente.setText("Tayssa Antoniasse");
+        nomeCliente.setText(usuario.nome);
 
         Label total = new Label();
         total.setBounds(150, 204, 293, 83);
-        total.setText("R$ 32,00");
 
-
+        double totalPedido = 0;
+        for (Lanche lanche : listaLanches) {
+            totalPedido = lanche.preco + totalPedido;
+        }
+        total.setText("R$" + totalPedido);
+        
 
         getContentPane().add(botaoVoltar);
         getContentPane().add(nomeRestaurante);

@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Menu  extends JFrame {
@@ -20,9 +21,10 @@ public class Menu  extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
-        Total telaTotal = new Total();
         int quantidadeProduto = 0;
         int quantidadeTotal = 0;
+
+        ArrayList<Lanche> pedido = new ArrayList<>();
 
 
         Botao botaoVoltar = new Botao();
@@ -40,7 +42,7 @@ public class Menu  extends JFrame {
         String[] listaProdutos = Arrays.stream(restaurante.lanches.toArray()).map(n -> getLancheNome((Lanche) n)).toArray(String[]::new);
 
         JComboBox<String> dropdownProdutos = new JComboBox<>(listaProdutos);
-        dropdownProdutos.setBounds(105, 250, 200, 30);
+        dropdownProdutos.setBounds(230, 120, 200, 30);
 
         //BOTOES DE AUMENTAR QNTD
         aumentarQtd = new Botao();
@@ -67,30 +69,46 @@ public class Menu  extends JFrame {
         });
         botaoNext.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                telaTotal.setVisible(true);
+                new Total(restaurante, usuario, pedido).setVisible(true);
                 dispose();
             }
         });
 
         botaoOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                labelTotalItens.setText("" + (quantidadeProduto+quantidadeTotal));
+                int quantidadeAadicionar = Integer.parseInt(labelQtdProdutoAtual.getText());
+                String nomeProduto = listaProdutos[dropdownProdutos.getSelectedIndex()].split(" - ")[0];
+                Lanche lanche = null;
+
+                for (Lanche _lanche : restaurante.lanches) {
+                    if (_lanche.nome.equals(nomeProduto)){
+                        lanche = _lanche;
+                    }
+
+                }
+
+
+                for (int i = 0; i < quantidadeAadicionar; i++) {
+                    pedido.add(new Lanche(lanche.nome, lanche.preco));
+                }
+
+                labelTotalItens.setText("" + (pedido.size()));
                 labelQtdProdutoAtual.setText("" + 0);
 
-                System.out.println("adicionando " + quantidadeProduto + " á " + quantidadeTotal);
+                System.out.println("adicionando " + labelQtdProdutoAtual.getText() + " á " + quantidadeTotal);
             }
         });
 
         aumentarQtd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                labelQtdProdutoAtual.setText("" + (quantidadeProduto+1));
+                labelQtdProdutoAtual.setText("" + (Integer.parseInt(labelQtdProdutoAtual.getText())+1));
                 System.out.println(quantidadeProduto);
             }
         });
 
         diminuirQtd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                labelQtdProdutoAtual.setText("" + (quantidadeProduto-1));
+                labelQtdProdutoAtual.setText("" + (Integer.parseInt(labelQtdProdutoAtual.getText())-1));
                 System.out.println(quantidadeProduto);
             }
         });
@@ -108,7 +126,6 @@ public class Menu  extends JFrame {
             }
         });
 
-
         getContentPane().add(botaoVoltar);
         getContentPane().add(botaoNext);
         getContentPane().add(botaoOk);
@@ -117,6 +134,7 @@ public class Menu  extends JFrame {
         getContentPane().add(diminuirQtd);
         getContentPane().add(labelQtdProdutoAtual);
         getContentPane().add(botaoImprimir);
+        getContentPane().add(dropdownProdutos);
 
         ImageIcon imagem = new ImageIcon("src/imagens/cardapio.png");
         Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
