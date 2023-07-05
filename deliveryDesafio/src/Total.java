@@ -40,19 +40,22 @@ public class Total extends JFrame{
         }
         total.setText("R$" + totalPedido + "0");
 
+        double finalTotalPedido = totalPedido;
         botaoImprimirNotaFiscal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("IMprimindo nota fiscal");
                 System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-                System.out.println("Restaurante: " + restaurante.nome.toUpperCase());
-                System.out.println("QTD/PRODUTO ................... PREÇO");
-                System.out.println("3x/Esfiha doce ............... R$ 29,00");
-                System.out.println("2x/Esfiha salgada ............ R$ 30,00");
-                System.out.println("TOTAL ........................ R$ " + "0");
+                System.out.println("Nota fiscal de: " + restaurante.nome.toUpperCase());
+                System.out.println("PRODUTO........................PREÇO");
+                String indent = "...............................";
+                for (Lanche lanche: listaLanches) {
+                    String output = lanche.nome;
+                    output += indent.substring(0, indent.length() - output.length());
+                    System.out.println(output + "R$" + lanche.preco);
+                }
+                System.out.println("TOTAL..........................R$" + finalTotalPedido);
                 System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             }
         });
-        
 
         getContentPane().add(botaoVoltar);
         getContentPane().add(nomeRestaurante);

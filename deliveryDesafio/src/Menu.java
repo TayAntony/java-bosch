@@ -115,11 +115,14 @@ public class Menu  extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
                 System.out.println("Restaurante: " + restaurante.nome.toUpperCase());
-                System.out.println("PRODUTO ................... PREÇO");
-                System.out.println("Esfiha doce ............... R$ 13,00");
-                System.out.println("Esfiha salgada ............ R$ 15,00");
-                System.out.println("Mini pizza ................ R$ 22,00");
-                System.out.println("Refrigerante .............. R$ 6,00");
+                System.out.println("PRODUTO........................PREÇO");
+                String indent = "...............................";
+                for (Lanche lanche: restaurante.lanches) {
+                    String output = lanche.nome;
+                    output += indent.substring(0, indent.length() - output.length());
+                    System.out.println(output + "R$" + lanche.preco);
+                }
+
                 System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             }
         });
