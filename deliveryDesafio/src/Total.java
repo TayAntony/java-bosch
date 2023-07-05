@@ -23,20 +23,13 @@ public class Total extends JFrame{
             }
         });
 
-        botaoImprimirNotaFiscal.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-                System.out.println("IMprimindo nota fiscal");
-            }
-        });
-
         Label nomeRestaurante = new Label();
         nomeRestaurante.setBounds(260, 70, 310, 45);
-        nomeRestaurante.setText(restaurante.nome);
+        nomeRestaurante.setText(restaurante.nome.toUpperCase());
 
         Label nomeCliente = new Label();
         nomeCliente.setBounds(200, 120, 310, 45);
-        nomeCliente.setText(usuario.nome);
+        nomeCliente.setText(usuario.nome.toUpperCase());
 
         Label total = new Label();
         total.setBounds(150, 204, 293, 83);
@@ -46,6 +39,19 @@ public class Total extends JFrame{
             totalPedido = lanche.preco + totalPedido;
         }
         total.setText("R$" + totalPedido + "0");
+
+        botaoImprimirNotaFiscal.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("IMprimindo nota fiscal");
+                System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                System.out.println("Restaurante: " + restaurante.nome.toUpperCase());
+                System.out.println("QTD/PRODUTO ................... PREÇO");
+                System.out.println("3x/Esfiha doce ............... R$ 29,00");
+                System.out.println("2x/Esfiha salgada ............ R$ 30,00");
+                System.out.println("TOTAL ........................ R$ " + "0");
+                System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+            }
+        });
         
 
         getContentPane().add(botaoVoltar);

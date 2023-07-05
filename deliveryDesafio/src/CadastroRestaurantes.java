@@ -44,8 +44,6 @@ public class CadastroRestaurantes extends JFrame {
         labelImagem.setBounds(0,  0, 800, 500);
         getContentPane().add(labelImagem);
 
-        //listaRestaurantes = new ArrayList<>();
-
         botaoCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             String nome = campoNome.getText();

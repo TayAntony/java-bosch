@@ -114,7 +114,7 @@ public class Menu  extends JFrame {
         botaoImprimir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-                System.out.println("Restaurante Esfihas Donatello");
+                System.out.println("Restaurante: " + restaurante.nome.toUpperCase());
                 System.out.println("PRODUTO ................... PREÇO");
                 System.out.println("Esfiha doce ............... R$ 13,00");
                 System.out.println("Esfiha salgada ............ R$ 15,00");

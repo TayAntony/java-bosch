@@ -18,7 +18,5 @@ public class Aplicativo {
 
         tela.getBotaoFazerPedido().addActionListener(e -> new Pedidos(listaRestaurantes, listaUsuarios).setVisible(true));
 
-        //tela.getBotaoFazerPedido().addActionListener(e -> menu.setVisible(true));
-
     }
 }
